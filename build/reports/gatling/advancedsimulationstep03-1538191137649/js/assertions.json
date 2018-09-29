@@ -1,0 +1,10 @@
+{
+  "simulation": "com.perftest.AdvancedSimulationStep03",
+  "simulationId": "advancedsimulationstep03",
+  "start": 1538191137649,
+  "description": "",
+  "scenarios": ["Users", "Admins"],
+  "assertions": [
+
+  ]
+}

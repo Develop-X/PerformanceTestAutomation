@@ -1,0 +1,10 @@
+{
+  "simulation": "com.perftest.BasicSimulation",
+  "simulationId": "basicsimulation",
+  "start": 1538191095485,
+  "description": "",
+  "scenarios": ["Scenario Name"],
+  "assertions": [
+
+  ]
+}

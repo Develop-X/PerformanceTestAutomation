@@ -1,0 +1,52 @@
+group 'gatling.performance.test'
+version '1.0-SNAPSHOT'
+
+apply plugin: "scala"
+apply plugin: "com.github.lkishalmi.gatling"
+
+ScalaCompileOptions.metaClass.daemonServer = true
+ScalaCompileOptions.metaClass.fork = true
+ScalaCompileOptions.metaClass.useAnt = false
+ScalaCompileOptions.metaClass.useCompileDaemon = false
+
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.github.lkishalmi.gatling:gradle-gatling-plugin:0.7.3"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "io.gatling.highcharts:gatling-charts-highcharts:2.3.1"
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    testCompile 'junit:junit:4.12'
+}
+
+
+project.sourceSets {
+    gatling {
+        scala.srcDirs = ['src/test/gatling']
+        resources.srcDirs = ['src/test/gatling/data', 'src/test/gatling/bodies', 'src/test/gatling/conf']
+    }
+}
+
+gatling {
+    sourceRoot = 'src/test/gatling'
+    simulationsDir = 'simulations'
+    dataDir = 'data'
+    bodiesDir = 'bodies'
+    confDir = 'conf'
+    toolVersion = '2.3.1'
+    jvmArgs = [ '-server', '-Xms512M', '-Xmx512M' ]
+    simulations = [ 'com.perftest.BasicSimulation','com.perftest.ComputerDatabase1','com.perftest.AdvancedSimulationStep03']
+}
+
