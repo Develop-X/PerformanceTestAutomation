@@ -36,3 +36,23 @@ reporting:
 #    test: Taurus Local Test  # name for test to store reports
 #    project: My Taurus Project  # name for project to store test, can be numeric project ID
 #    public-report: false  # set to true to create a public link to the report
+
+settings:
+#  default-executor: jmeter  # if you prefer using other executor by default - change this option
+  artifacts-dir: ~/bzt-artifacts/%Y-%m-%d_%H-%M-%S.%f  # change the default place to store artifact files
+  check-updates: true  # check for newer version of Taurus on startup
+#  check-interval: 1s  # interval for Taurus engine to check test status and do other actions
+#  proxy:  # custom proxy settings
+#    address: http://127.0.0.1:8080  # proxy server address
+#    username: user  # username and password used if authentication is configured on proxy server
+#    password: 12345
+
+
+#service:
+#- module: monitoring
+#  server-agent:
+#  - address: 192.168.1.3:4444
+#    metrcs:
+#    - cpu
+#    - discs
+#    - memory
